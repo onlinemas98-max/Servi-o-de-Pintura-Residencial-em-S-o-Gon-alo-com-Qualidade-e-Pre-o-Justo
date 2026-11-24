@@ -60,7 +60,8 @@ section{padding:68px 0}
 footer{background:var(--footer);padding:30px 0;color:#607067;text-align:center;font-size:13px}
 footer p{margin:5px 0}
 .admin-link{display:inline-block;margin-top:12px;color:#718078;text-decoration:underline;font-size:12px;cursor:pointer}
-.admin-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:20px auto;max-width:700px;text-align:left;color:var(--ink)}
+.admin-panel[hidden]{display:none!important}
+.admin-panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:20px auto;max-width:700px;text-align:left;color:var(--ink)}
 .admin-panel h3{margin:0 0 12px;color:var(--green)}
 .admin-panel input{padding:10px;border:1px solid #bdcfc2;border-radius:5px;font-size:15px;max-width:220px}
 .admin-panel button{padding:10px 15px;border:0;border-radius:5px;background:var(--green);color:#fff;font-weight:700;cursor:pointer}
@@ -90,7 +91,6 @@ footer p{margin:5px 0}
       <h1>Serviço de Pintura Residencial em São Gonçalo com Qualidade e Preço Justo</h1>
       <p>Renove seus ambientes com pintura bem-feita, atenção aos detalhes e cuidado com seu imóvel. Atendemos casas e apartamentos em São Gonçalo e região.</p>
       <a class="whats whatsapp-link" href="https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial." target="_blank" rel="noopener" data-whatsapp>☏ Solicitar orçamento pelo WhatsApp</a>
-      <p class="hero-note">Converse diretamente pelo WhatsApp: (21) 97697-0127</p>
     </div>
     <div class="hero-art" aria-label="Ilustração de pintura residencial">
       <svg class="paint-illustration" viewBox="0 0 440 330" role="img" aria-label="Parede verde sendo pintada com rolo">
@@ -155,10 +155,9 @@ footer p{margin:5px 0}
 <footer>
   <div class="wrap">
     <p><strong>Serviço de Pintura Residencial em São Gonçalo – RJ</strong></p>
-    <p>WhatsApp: (21) 97697-0127</p>
     <p>© <span id="year"></span> — Todos os direitos reservados.</p>
     <a class="admin-link" href="#admin" id="adminToggle">Área administrativa</a>
-    <div class="admin-panel" id="adminPanel">
+    <div class="admin-panel" id="adminPanel" hidden>
       <h3>Acesso administrativo</h3>
       <p>Digite a senha para consultar a quantidade de cliques nos botões do WhatsApp neste navegador.</p>
       <input type="password" id="adminPassword" placeholder="Senha de acesso" autocomplete="current-password" aria-label="Senha de acesso">
@@ -177,73 +176,82 @@ footer p{margin:5px 0}
 </footer>
 
 <script>
-(function(){
+document.addEventListener("DOMContentLoaded", function () {
   "use strict";
-  const phoneLink = "https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial.";
+  const whatsappUrl = "https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial.";
   const countKey = "pintura_sg_whatsapp_clicks";
   const sessionKey = "pintura_sg_session_clicks";
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  document.querySelectorAll("[data-whatsapp]").forEach(function(link){
-    link.addEventListener("click", function(){
+  document.querySelectorAll("[data-whatsapp]").forEach(function (link) {
+    link.href = whatsappUrl;
+    link.addEventListener("click", function () {
       try {
         const total = Number(localStorage.getItem(countKey) || 0);
         localStorage.setItem(countKey, String(total + 1));
         const session = Number(sessionStorage.getItem(sessionKey) || 0);
         sessionStorage.setItem(sessionKey, String(session + 1));
-      } catch(e) {
-        console.warn("Não foi possível registrar o clique neste navegador.");
+      } catch (error) {
+        // O WhatsApp continua funcionando mesmo se o navegador bloquear armazenamento.
       }
-      link.href = phoneLink;
     });
   });
 
   const panel = document.getElementById("adminPanel");
   const toggle = document.getElementById("adminToggle");
   const password = document.getElementById("adminPassword");
-  const loginButton = document.getElementById("loginButton");
   const message = document.getElementById("loginMessage");
   const stats = document.getElementById("stats");
+  const loginButton = document.getElementById("loginButton");
   const adminPassword = "2504";
 
-  toggle.addEventListener("click", function(e){
-    e.preventDefault();
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  toggle.addEventListener("click", function (event) {
+    event.preventDefault();
+    panel.hidden = !panel.hidden;
+    toggle.setAttribute("aria-expanded", String(!panel.hidden));
+    if (!panel.hidden) password.focus();
   });
 
-  function refreshStats(){
-    let total = 0, session = 0;
+  function refreshStats() {
+    let total = 0;
+    let session = 0;
     try {
       total = Number(localStorage.getItem(countKey) || 0);
       session = Number(sessionStorage.getItem(sessionKey) || 0);
-    } catch(e) {}
+    } catch (error) {}
     document.getElementById("totalClicks").textContent = total;
     document.getElementById("sessionClicks").textContent = session;
   }
 
-  loginButton.addEventListener("click", function(){
-    if(password.value === adminPassword){
+  function login() {
+    if (password.value === adminPassword) {
       message.textContent = "Acesso autorizado.";
       stats.style.display = "block";
       password.value = "";
       refreshStats();
     } else {
-      message.textContent = "Senha incorreta.";
+      message.textContent = "Senha incorreta. Tente novamente.";
       stats.style.display = "none";
     }
+  }
+  loginButton.addEventListener("click", login);
+  password.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") login();
   });
-  password.addEventListener("keydown", function(e){ if(e.key === "Enter") loginButton.click(); });
-  document.getElementById("resetButton").addEventListener("click", function(){
-    if(confirm("Deseja realmente zerar o contador de cliques deste navegador?")){
-      try { localStorage.setItem(countKey, "0"); sessionStorage.setItem(sessionKey, "0"); } catch(e){}
+  document.getElementById("resetButton").addEventListener("click", function () {
+    if (window.confirm("Deseja realmente zerar o contador de cliques deste navegador?")) {
+      try {
+        localStorage.setItem(countKey, "0");
+        sessionStorage.setItem(sessionKey, "0");
+      } catch (error) {}
       refreshStats();
     }
   });
-  document.getElementById("logoutButton").addEventListener("click", function(){
+  document.getElementById("logoutButton").addEventListener("click", function () {
     stats.style.display = "none";
     message.textContent = "Você saiu da área administrativa.";
   });
-})();
+});
 </script>
 </body>
 </html>
