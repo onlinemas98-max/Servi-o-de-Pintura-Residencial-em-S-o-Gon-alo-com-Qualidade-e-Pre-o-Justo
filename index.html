@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Serviço de pintura residencial em São Gonçalo com qualidade e preço justo. Pintura de casas, apartamentos, paredes e ambientes internos e externos. Solicite seu orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#176b3a">
+<title>Pintura Residencial em São Gonçalo | Qualidade e Preço Justo</title>
+<style>
+:root{--green:#176b3a;--green2:#23864d;--pale:#edf7ef;--ink:#203128;--muted:#607067;--line:#dce8df;--footer:#f2f5f2}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{color:inherit}
+.wrap{width:min(1120px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.top{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:21px;font-weight:800;color:var(--green);text-decoration:none;letter-spacing:-.4px}
+.brand span{display:block;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14px;font-weight:700;color:#405148}
+nav a:hover{color:var(--green)}
+.hero{background:linear-gradient(115deg,#f0f8f1 0%,#fff 75%);padding:76px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center}
+.eyebrow{display:inline-block;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:1.4px;font-size:12px;margin-bottom:12px}
+h1{font-size:clamp(34px,4.5vw,53px);line-height:1.12;letter-spacing:-1.5px;margin:0 0 20px;color:#183d29}
+.hero p{font-size:18px;color:#52635a;max-width:610px;margin:0 0 26px}
+.whats{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#198b4b;color:white;text-decoration:none;font-weight:800;padding:15px 24px;border-radius:7px;min-height:52px;border:0}
+.whats:hover{background:#116d39}
+.hero-note{font-size:13px!important;margin:13px 0 0!important}
+.hero-art{background:#dcefe0;border-radius:16px;min-height:330px;padding:24px;display:flex;align-items:center;justify-content:center}
+.paint-illustration{width:100%;max-width:410px;height:auto;display:block}
+section{padding:68px 0}
+.section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+.section-head h2{font-size:clamp(27px,3vw,36px);line-height:1.2;color:#1b432c;margin:0 0 12px}
+.section-head p{margin:0;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:11px;padding:25px;background:#fff}
+.card-icon{width:46px;height:46px;border-radius:9px;background:var(--pale);display:grid;place-items:center;color:var(--green);font-size:23px;margin-bottom:15px}
+.card h3{margin:0 0 9px;font-size:20px;color:#234a32}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.about{background:#f7faf7}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+.about-panel{background:#e3f1e5;border-radius:14px;padding:32px}
+.about-panel strong{display:block;font-size:25px;color:var(--green);line-height:1.2;margin-bottom:12px}
+.about h2{font-size:34px;line-height:1.2;color:#1b432c;margin:0 0 16px}
+.about p{color:var(--muted);margin:0 0 14px}
+.checks{list-style:none;padding:0;margin:18px 0 0}
+.checks li{margin:9px 0;padding-left:26px;position:relative;color:#405148}
+.checks li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{text-align:center;padding:20px}
+.num{margin:0 auto 14px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:white;font-weight:800}
+.step h3{margin:0 0 7px;color:#234a32}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.cta{background:var(--green);color:#fff;text-align:center;padding:54px 0}
+.cta h2{font-size:32px;margin:0 0 10px}
+.cta p{margin:0 auto 22px;max-width:650px;color:#e3f1e7}
+.cta .whats{background:#fff;color:var(--green)}
+footer{background:var(--footer);padding:30px 0;color:#607067;text-align:center;font-size:13px}
+footer p{margin:5px 0}
+.admin-link{display:inline-block;margin-top:12px;color:#718078;text-decoration:underline;font-size:12px;cursor:pointer}
+.admin-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:20px auto;max-width:700px;text-align:left;color:var(--ink)}
+.admin-panel h3{margin:0 0 12px;color:var(--green)}
+.admin-panel input{padding:10px;border:1px solid #bdcfc2;border-radius:5px;font-size:15px;max-width:220px}
+.admin-panel button{padding:10px 15px;border:0;border-radius:5px;background:var(--green);color:#fff;font-weight:700;cursor:pointer}
+.stats{display:none;margin-top:18px}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat{background:var(--pale);padding:16px;border-radius:7px}
+.stat b{display:block;font-size:28px;color:var(--green)}
+.small-btn{margin-top:14px;background:#e9efea!important;color:#31483a!important}
+@media(max-width:760px){.top{padding:16px 0;align-items:flex-start;flex-direction:column}.hero{padding:52px 0}.hero-grid,.about-grid{grid-template-columns:1fr}.hero-art{min-height:230px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:5px}section{padding:52px 0}nav{gap:13px}.about-panel{order:2}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="#inicio">PINTURA RESIDENCIAL<span>São Gonçalo · RJ</span></a>
+    <nav aria-label="Navegação principal">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#orcamento">Orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Pintura residencial em São Gonçalo</span>
+      <h1>Serviço de Pintura Residencial em São Gonçalo com Qualidade e Preço Justo</h1>
+      <p>Renove seus ambientes com pintura bem-feita, atenção aos detalhes e cuidado com seu imóvel. Atendemos casas e apartamentos em São Gonçalo e região.</p>
+      <a class="whats whatsapp-link" href="https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial." target="_blank" rel="noopener" data-whatsapp>☏ Solicitar orçamento pelo WhatsApp</a>
+      <p class="hero-note">Converse diretamente pelo WhatsApp: (21) 97697-0127</p>
+    </div>
+    <div class="hero-art" aria-label="Ilustração de pintura residencial">
+      <svg class="paint-illustration" viewBox="0 0 440 330" role="img" aria-label="Parede verde sendo pintada com rolo">
+        <rect x="35" y="30" width="370" height="260" rx="14" fill="#fff"/>
+        <rect x="55" y="50" width="330" height="220" rx="5" fill="#d8eadb"/>
+        <path d="M55 205 Q145 180 220 205 T385 205 V270 H55Z" fill="#b8d8be"/>
+        <rect x="93" y="83" width="145" height="120" rx="4" fill="#fff" stroke="#8eb99a" stroke-width="5"/>
+        <path d="M165 83V203M93 143H238" stroke="#8eb99a" stroke-width="5"/>
+        <rect x="279" y="92" width="68" height="115" rx="7" fill="#176b3a"/>
+        <rect x="290" y="104" width="46" height="90" rx="3" fill="#eaf5ec"/>
+        <path d="M300 194V217M326 194V217" stroke="#176b3a" stroke-width="5"/>
+        <g transform="translate(245 35) rotate(18)">
+          <rect x="0" y="0" width="105" height="24" rx="8" fill="#23864d"/>
+          <rect x="98" y="8" width="15" height="8" rx="3" fill="#176b3a"/>
+          <path d="M106 12H120V94" fill="none" stroke="#596b60" stroke-width="8" stroke-linecap="round"/>
+          <path d="M120 94L145 126" stroke="#596b60" stroke-width="8" stroke-linecap="round"/>
+        </g>
+        <circle cx="82" cy="238" r="9" fill="#23864d"/><circle cx="107" cy="248" r="5" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Nossos serviços</span><h2>Pintura para renovar e valorizar seu imóvel</h2><p>Serviços residenciais planejados conforme as condições do ambiente e a necessidade de cada cliente.</p></div>
+    <div class="cards">
+      <article class="card"><div class="card-icon">⌂</div><h3>Pintura de casas</h3><p>Pintura de paredes, tetos, fachadas e demais áreas da casa, com atenção à preparação das superfícies e ao acabamento.</p></article>
+      <article class="card"><div class="card-icon">▦</div><h3>Pintura de apartamentos</h3><p>Renovação de salas, quartos, cozinhas, corredores e outros cômodos para deixar os ambientes mais agradáveis.</p></article>
+      <article class="card"><div class="card-icon">▤</div><h3>Pintura interna e externa</h3><p>Serviços em áreas internas e externas, considerando o tipo de superfície e a tinta adequada para cada aplicação.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-panel"><strong>Seu imóvel renovado com cuidado em cada etapa.</strong><p>Um bom resultado começa com planejamento, escolha correta dos materiais e atenção aos detalhes.</p></div>
+    <div><span class="eyebrow">Sobre o atendimento</span><h2>Compromisso com um serviço bem executado</h2><p>Uma pintura residencial pode transformar a aparência e a sensação de um ambiente. Por isso, cada serviço deve considerar as condições das paredes, a preparação necessária e o acabamento esperado.</p><p>O atendimento é direcionado a moradores de São Gonçalo, RJ, que desejam conversar sobre sua necessidade e solicitar uma avaliação para pintura residencial.</p>
+      <ul class="checks"><li>Avaliação da necessidade de pintura</li><li>Orientação sobre preparação e acabamento</li><li>Atendimento para casas e apartamentos</li><li>Contato direto e simples pelo WhatsApp</li></ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Como solicitar</span><h2>Peça seu orçamento em poucos passos</h2><p>Conte o que você precisa e combine os próximos detalhes diretamente pelo WhatsApp.</p></div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Entre em contato</h3><p>Toque no botão do WhatsApp para iniciar uma conversa.</p></div>
+      <div class="step"><div class="num">2</div><h3>Explique o serviço</h3><p>Informe o tipo de imóvel, os ambientes e o que deseja pintar.</p></div>
+      <div class="step"><div class="num">3</div><h3>Combine a avaliação</h3><p>Converse sobre os detalhes e solicite seu orçamento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="orcamento">
+  <div class="wrap"><h2>Vai renovar a pintura do seu imóvel?</h2><p>Fale agora pelo WhatsApp e solicite informações sobre pintura residencial em São Gonçalo.</p>
+    <a class="whats whatsapp-link" href="https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial." target="_blank" rel="noopener" data-whatsapp>☏ Solicitar orçamento pelo WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Serviço de Pintura Residencial em São Gonçalo – RJ</strong></p>
+    <p>WhatsApp: (21) 97697-0127</p>
+    <p>© <span id="year"></span> — Todos os direitos reservados.</p>
+    <a class="admin-link" href="#admin" id="adminToggle">Área administrativa</a>
+    <div class="admin-panel" id="adminPanel">
+      <h3>Acesso administrativo</h3>
+      <p>Digite a senha para consultar a quantidade de cliques nos botões do WhatsApp neste navegador.</p>
+      <input type="password" id="adminPassword" placeholder="Senha de acesso" autocomplete="current-password" aria-label="Senha de acesso">
+      <button type="button" id="loginButton">Entrar</button>
+      <p id="loginMessage" role="status"></p>
+      <div class="stats" id="stats">
+        <div class="stat-grid">
+          <div class="stat"><span>Total de cliques</span><b id="totalClicks">0</b></div>
+          <div class="stat"><span>Cliques nesta sessão</span><b id="sessionClicks">0</b></div>
+        </div>
+        <button type="button" class="small-btn" id="resetButton">Zerar contador</button>
+        <button type="button" class="small-btn" id="logoutButton">Sair</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const phoneLink = "https://wa.me/5521976970127?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20pintura%20residencial.";
+  const countKey = "pintura_sg_whatsapp_clicks";
+  const sessionKey = "pintura_sg_session_clicks";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.querySelectorAll("[data-whatsapp]").forEach(function(link){
+    link.addEventListener("click", function(){
+      try {
+        const total = Number(localStorage.getItem(countKey) || 0);
+        localStorage.setItem(countKey, String(total + 1));
+        const session = Number(sessionStorage.getItem(sessionKey) || 0);
+        sessionStorage.setItem(sessionKey, String(session + 1));
+      } catch(e) {
+        console.warn("Não foi possível registrar o clique neste navegador.");
+      }
+      link.href = phoneLink;
+    });
+  });
+
+  const panel = document.getElementById("adminPanel");
+  const toggle = document.getElementById("adminToggle");
+  const password = document.getElementById("adminPassword");
+  const loginButton = document.getElementById("loginButton");
+  const message = document.getElementById("loginMessage");
+  const stats = document.getElementById("stats");
+  const adminPassword = "2504";
+
+  toggle.addEventListener("click", function(e){
+    e.preventDefault();
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+
+  function refreshStats(){
+    let total = 0, session = 0;
+    try {
+      total = Number(localStorage.getItem(countKey) || 0);
+      session = Number(sessionStorage.getItem(sessionKey) || 0);
+    } catch(e) {}
+    document.getElementById("totalClicks").textContent = total;
+    document.getElementById("sessionClicks").textContent = session;
+  }
+
+  loginButton.addEventListener("click", function(){
+    if(password.value === adminPassword){
+      message.textContent = "Acesso autorizado.";
+      stats.style.display = "block";
+      password.value = "";
+      refreshStats();
+    } else {
+      message.textContent = "Senha incorreta.";
+      stats.style.display = "none";
+    }
+  });
+  password.addEventListener("keydown", function(e){ if(e.key === "Enter") loginButton.click(); });
+  document.getElementById("resetButton").addEventListener("click", function(){
+    if(confirm("Deseja realmente zerar o contador de cliques deste navegador?")){
+      try { localStorage.setItem(countKey, "0"); sessionStorage.setItem(sessionKey, "0"); } catch(e){}
+      refreshStats();
+    }
+  });
+  document.getElementById("logoutButton").addEventListener("click", function(){
+    stats.style.display = "none";
+    message.textContent = "Você saiu da área administrativa.";
+  });
+})();
+</script>
+</body>
+</html>
